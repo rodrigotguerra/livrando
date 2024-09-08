@@ -26,7 +26,7 @@ junit = { group = "junit", name = "junit", version = "4.13.2" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version = "1.2.1" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.6.1" }
 
-androidx-room = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler= { module = "androidx.room:room-compiler", version.ref= "room"}
 
 

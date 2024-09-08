@@ -34,7 +34,9 @@ android {
 }
 
 dependencies {
-    project(":core:model")
+    implementation(project(":core:model"))
+
+    api(libs.hilt.android)
 
     implementation(libs.androidx.room)
     ksp(libs.room.compiler)

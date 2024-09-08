@@ -18,7 +18,7 @@ class EntryTest {
 
     @Before
     fun setUp() {
-        mockBook = Book("Book Title", "Author Name", "url", 20)
+        mockBook = Book("1","Book Title", "Author Name", "url", 20)
         mockEntry = Entry(mockBook, Date(1000L), 30, 5)
     }
 
@@ -26,6 +26,7 @@ class EntryTest {
     fun `book constructor with arguments success`() {
         val target = mockBook
         assertNotNull(target)
+        assertEquals(mockBook.id, target.id)
         assertEquals(mockBook.title, target.title)
         assertEquals(mockBook.author, target.author)
         assertEquals(mockBook.coverUrl, target.coverUrl)
