@@ -33,7 +33,6 @@ android {
 }
 
 dependencies {
-
     api(libs.androidx.core)
 
     testImplementation(libs.junit)

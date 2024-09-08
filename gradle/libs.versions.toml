@@ -4,17 +4,14 @@ constraintlayout = "2.1.4"
 hilt = "2.51.1"
 kotlin = "1.9.25"
 material = "1.12.0"
-agp = "8.6.0"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
+room = "2.6.1"
 
 [plugins]
 android-aplication = { id = "com.android.application", version = "8.6.0"}
 ksp = { id = "com.google.devtools.ksp", version = "1.9.25-1.0.20"}
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
-android-library = { id = "com.android.library", version.ref = "agp" }
+android-library = { id = "com.android.library", version = "8.6.0" }
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -24,7 +21,12 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+junit = { group = "junit", name = "junit", version = "4.13.2" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version = "1.2.1" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.6.1" }
+
+androidx-room = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler= { module = "androidx.room:room-compiler", version.ref= "room"}
+
 
