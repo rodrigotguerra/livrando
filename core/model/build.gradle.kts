@@ -37,4 +37,5 @@ dependencies {
     api(libs.androidx.core)
 
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.junit)
 }
