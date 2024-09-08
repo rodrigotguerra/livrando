@@ -5,6 +5,7 @@ hilt = "2.51.1"
 kotlin = "1.9.25"
 material = "1.12.0"
 room = "2.6.1"
+coroutines = "1.8.0"
 
 [plugins]
 android-aplication = { id = "com.android.application", version = "8.6.0"}
@@ -14,19 +15,29 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 android-library = { id = "com.android.library", version = "8.6.0" }
 
 [libraries]
+androidx-core = { module = "androidx.core:core-ktx", version = "1.13.1" }
+
+#UI
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
-androidx-core = { module = "androidx.core:core-ktx", version = "1.13.1" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 
+#HILT
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 
+#TESTING
 junit = { group = "junit", name = "junit", version = "4.13.2" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version = "1.2.1" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.6.1" }
+androidx-runner = { group = "androidx.test", name = "runner", version = "1.6.2" }
 
+#ROOM
 androidx-room = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler= { module = "androidx.room:room-compiler", version.ref= "room"}
+
+#COROUTINES
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
 

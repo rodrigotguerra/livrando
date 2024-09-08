@@ -1,5 +1,6 @@
 package com.rodrigotguerra.livrando.core.database.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.rodrigotguerra.livrando.core.model.Book
@@ -10,6 +11,7 @@ data class BookEntity (
     val id: String,
     val title: String,
     val author: String,
+    @ColumnInfo(name = "cover_url")
     val coverUrl: String,
     val pages: Int
 )

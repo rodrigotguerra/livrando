@@ -37,10 +37,13 @@ dependencies {
     implementation(project(":core:model"))
 
     api(libs.hilt.android)
+    api(libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.room)
+    implementation(libs.androidx.runner)
     ksp(libs.room.compiler)
 
-    testImplementation(libs.junit)
-    testImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 }
