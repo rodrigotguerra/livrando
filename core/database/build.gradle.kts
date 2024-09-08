@@ -1,22 +1,18 @@
 plugins {
-    alias(libs.plugins.android.aplication)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt.android)
 }
 
 android {
-    namespace = "com.rodrigotguerra.livrando"
+    namespace = "com.rodrigotguerra.livrando.core.database"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rodrigotguerra.livrando"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -38,16 +34,16 @@ android {
 }
 
 dependencies {
-
-    api(libs.androidx.core)
-    api(libs.androidx.appcompat)
-    api(libs.material)
-    api(libs.androidx.constraintlayout)
+    implementation(project(":core:model"))
 
     api(libs.hilt.android)
-    ksp(libs.hilt.android.compiler)
+    api(libs.kotlinx.coroutines.android)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.runner)
+    ksp(libs.room.compiler)
+
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 }
