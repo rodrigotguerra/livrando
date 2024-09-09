@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.rodrigotguerra.livrando.core.database"
+    namespace = "com.rodrigotguerra.livrando.core.data"
     compileSdk = 34
 
     defaultConfig {
@@ -34,16 +33,9 @@ android {
 }
 
 dependencies {
-    api(project(":core:model"))
+    implementation(project(":core:database"))
 
-    api(libs.hilt.android)
-    api(libs.kotlinx.coroutines.android)
-
-    implementation(libs.androidx.room)
-    implementation(libs.androidx.runner)
-    ksp(libs.room.compiler)
-
-    androidTestImplementation(libs.junit)
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
