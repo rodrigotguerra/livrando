@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:database"))
+    api(project(":core:database"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

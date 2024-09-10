@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.rodrigotguerra.livrando.feature.jounal"
+    namespace = "com.rodrigotguerra.livrando.core.ui"
     compileSdk = 34
 
     defaultConfig {
@@ -39,16 +39,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:data"))
-    implementation(project(":core:ui"))
+    api(libs.glide)
 
-    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }
