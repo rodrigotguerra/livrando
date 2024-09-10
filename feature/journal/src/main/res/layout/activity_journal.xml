@@ -10,5 +10,13 @@
         android:layout_height="match_parent"
         android:background="@color/gunmetal">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/book_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

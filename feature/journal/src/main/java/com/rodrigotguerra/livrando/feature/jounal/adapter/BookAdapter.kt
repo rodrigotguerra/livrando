@@ -38,10 +38,10 @@ class BookAdapter @Inject constructor() :
 
     override fun onBindViewHolder(holder: BookContainerViewHolder, position: Int) {
         if (position == itemCount - 1) {
-            itemCount
-        } else {
-            itemCount
+            return
         }
+        val book = books[position]
+        (holder as BookViewHolder).bind(book)
     }
 
     override fun getItemCount(): Int = books.size + 1
@@ -50,15 +50,23 @@ class BookAdapter @Inject constructor() :
         if (position == itemCount - 1) TYPE_ADD_VIEW else TYPE_BOOK_VIEW
 
 
+    fun setBooks(fetchedBooks: List<Book>?) {
+        books.clear()
+        fetchedBooks?.let {
+            books.addAll(it)
+        }
+        notifyDataSetChanged()
+    }
+
     abstract inner class BookContainerViewHolder(binding: ViewDataBinding) :
         ViewHolder<View>(binding.root)
 
     inner class BookViewHolder(val binding: BookViewBinding) : BookContainerViewHolder(binding) {
-
+        fun bind(book: Book) {
+            binding.book = book
+        }
     }
 
     inner class AddBookViewHolder(val binding: AddBookViewBinding) :
-        BookContainerViewHolder(binding) {
-
-    }
+        BookContainerViewHolder(binding)
 }

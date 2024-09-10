@@ -44,6 +44,8 @@ dependencies {
     api(libs.material)
     api(libs.androidx.constraintlayout)
 
+    implementation(project(":feature:journal"))
+
     api(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 

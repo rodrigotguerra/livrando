@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 rootProject.name = "Livrando"
 include(":app")
 include(":core:database")
-include(":feature:jounal")
+include(":feature:journal")
 include(":core:model")
 include(":core:data")
 include(":core:ui")
