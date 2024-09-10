@@ -11,10 +11,10 @@ import com.rodrigotguerra.livrando.core.database.model.BookEntity
 interface BookDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertBook(book: BookEntity)
+    suspend fun insertBook(book: BookEntity): Long
 
     @Delete
-    suspend fun deleteBook(book: BookEntity)
+    suspend fun deleteBook(book: BookEntity): Int
 
     @Query("SELECT * FROM `livrando-database`")
     fun getBooks(): List<BookEntity>

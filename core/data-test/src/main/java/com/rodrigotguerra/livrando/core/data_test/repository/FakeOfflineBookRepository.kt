@@ -1,5 +1,6 @@
-package com.rodrigotguerra.livrando.core.data.repository
+package com.rodrigotguerra.livrando.core.data_test.repository
 
+import com.rodrigotguerra.livrando.core.data.repository.BookRepository
 import com.rodrigotguerra.livrando.core.model.Book
 
 class FakeOfflineBookRepository : BookRepository {

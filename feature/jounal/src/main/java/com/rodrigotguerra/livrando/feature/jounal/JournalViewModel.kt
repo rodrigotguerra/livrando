@@ -4,27 +4,29 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rodrigotguerra.livrando.core.common.utils.StringUtils
 import com.rodrigotguerra.livrando.core.data.repository.BookRepository
 import com.rodrigotguerra.livrando.core.model.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class JournalViewModel @Inject constructor(private val offlineBookRepository: BookRepository) :
+class JournalViewModel @Inject constructor(private val offlineBookRepository: BookRepository, private val dispatcher: CoroutineDispatcher) :
     ViewModel() {
-
-    private val dispatcher = Dispatchers.IO
 
     private val _booksList = MutableLiveData<List<Book>>()
     val booksList: LiveData<List<Book>> get() = _booksList
 
-    fun addBook(book: Book) {
+    fun addBook(title: String, author: String, coverUrl: String, pages: Int) {
+        val book = Book(StringUtils.EMPTY, title, author, coverUrl, pages)
         viewModelScope.launch(dispatcher) {
             offlineBookRepository.insertBook(book)
         }
+        getBooks()
     }
 
     fun removeBook(book: Book) {
