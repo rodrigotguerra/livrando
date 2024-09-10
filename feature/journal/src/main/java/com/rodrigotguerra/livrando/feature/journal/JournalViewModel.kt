@@ -1,4 +1,4 @@
-package com.rodrigotguerra.livrando.feature.jounal
+package com.rodrigotguerra.livrando.feature.journal
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,6 @@ import com.rodrigotguerra.livrando.core.data.repository.BookRepository
 import com.rodrigotguerra.livrando.core.model.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

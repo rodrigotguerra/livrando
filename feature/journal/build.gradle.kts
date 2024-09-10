@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.kapt)
 }
 
 android {
-    namespace = "com.rodrigotguerra.livrando.feature.jounal"
+    namespace = "com.rodrigotguerra.livrando.feature.journal"
     compileSdk = 34
 
     defaultConfig {

@@ -1,4 +1,4 @@
-package com.rodrigotguerra.livrando.feature.jounal
+package com.rodrigotguerra.livrando.feature.journal
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

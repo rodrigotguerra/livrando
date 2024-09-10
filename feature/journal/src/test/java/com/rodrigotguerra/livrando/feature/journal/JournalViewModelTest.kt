@@ -1,4 +1,4 @@
-package com.rodrigotguerra.livrando.feature.jounal
+package com.rodrigotguerra.livrando.feature.journal
 
 import org.junit.Before
 import com.rodrigotguerra.livrando.core.data_test.repository.FakeOfflineBookRepository

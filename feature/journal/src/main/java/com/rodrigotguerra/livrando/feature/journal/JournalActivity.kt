@@ -1,11 +1,11 @@
-package com.rodrigotguerra.livrando.feature.jounal
+package com.rodrigotguerra.livrando.feature.journal
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.rodrigotguerra.livrando.feature.jounal.adapter.BookAdapter
-import com.rodrigotguerra.livrando.feature.jounal.databinding.ActivityJournalBinding
+import com.rodrigotguerra.livrando.feature.journal.adapter.BookAdapter
+import com.rodrigotguerra.livrando.feature.journal.databinding.ActivityJournalBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

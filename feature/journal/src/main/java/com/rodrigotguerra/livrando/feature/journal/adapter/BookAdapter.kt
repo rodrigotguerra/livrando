@@ -1,5 +1,6 @@
-package com.rodrigotguerra.livrando.feature.jounal.adapter
+package com.rodrigotguerra.livrando.feature.journal.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,10 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.rodrigotguerra.livrando.core.model.Book
-import com.rodrigotguerra.livrando.feature.jounal.R
-import com.rodrigotguerra.livrando.feature.jounal.databinding.BookViewBinding
+import com.rodrigotguerra.livrando.feature.journal.R
+import com.rodrigotguerra.livrando.feature.journal.databinding.BookViewBinding
 import com.rodrigotguerra.livrando.core.ui.utils.ViewHolder
-import com.rodrigotguerra.livrando.feature.jounal.databinding.AddBookViewBinding
+import com.rodrigotguerra.livrando.feature.journal.AddBookActivity
+import com.rodrigotguerra.livrando.feature.journal.databinding.AddBookViewBinding
 import javax.inject.Inject
 
 class BookAdapter @Inject constructor() :
@@ -38,6 +40,12 @@ class BookAdapter @Inject constructor() :
 
     override fun onBindViewHolder(holder: BookContainerViewHolder, position: Int) {
         if (position == itemCount - 1) {
+            holder.itemView.setOnClickListener {
+                it.context.run {
+                    val intent = Intent(this, AddBookActivity::class.java)
+                    startActivity(intent)
+                }
+            }
             return
         }
         val book = books[position]
