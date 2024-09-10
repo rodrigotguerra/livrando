@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.rodrigotguerra.livrando.feature.jounal"
+    namespace = "com.rodrigotguerra.livrando.core.data"
     compileSdk = 34
 
     defaultConfig {
@@ -24,11 +23,6 @@ android {
             )
         }
     }
-
-    buildFeatures {
-        dataBinding = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -39,14 +33,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:data"))
-    implementation(project(":core:ui"))
-
-    implementation(libs.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
+    api(project(":core:database"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

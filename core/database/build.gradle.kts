@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:model"))
+    api(project(":core:model"))
 
     api(libs.hilt.android)
     api(libs.kotlinx.coroutines.android)
