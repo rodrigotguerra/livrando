@@ -12,6 +12,7 @@ import com.rodrigotguerra.livrando.feature.journal.R
 import com.rodrigotguerra.livrando.feature.journal.databinding.BookViewBinding
 import com.rodrigotguerra.livrando.core.ui.utils.ViewHolder
 import com.rodrigotguerra.livrando.feature.journal.AddBookActivity
+import com.rodrigotguerra.livrando.feature.journal.BookClickListener
 import com.rodrigotguerra.livrando.feature.journal.databinding.AddBookViewBinding
 import javax.inject.Inject
 
@@ -19,12 +20,13 @@ class BookAdapter @Inject constructor() :
     RecyclerView.Adapter<BookAdapter.BookContainerViewHolder>() {
 
     private val books = mutableListOf<Book>()
+    var clickListener: BookClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookContainerViewHolder {
         return if (viewType == TYPE_ADD_VIEW) AddBookViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.book_view,
+                R.layout.add_book_view,
                 parent,
                 false
             )
@@ -72,6 +74,7 @@ class BookAdapter @Inject constructor() :
     inner class BookViewHolder(val binding: BookViewBinding) : BookContainerViewHolder(binding) {
         fun bind(book: Book) {
             binding.book = book
+            binding.clickListener = clickListener
         }
     }
 

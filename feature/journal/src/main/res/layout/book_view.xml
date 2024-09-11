@@ -9,11 +9,16 @@
             name="book"
             type="com.rodrigotguerra.livrando.core.model.Book" />
 
+        <variable
+            name="clickListener"
+            type="com.rodrigotguerra.livrando.feature.journal.BookClickListener" />
+
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="140dp"
-    android:layout_height="240dp">
+    android:layout_height="240dp"
+    android:onClick="@{() -> clickListener.onBookClicked(book)}">
 
 <ImageView
     android:id="@+id/book_cover"

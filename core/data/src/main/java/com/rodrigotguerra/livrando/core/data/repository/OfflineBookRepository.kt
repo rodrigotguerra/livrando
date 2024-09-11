@@ -11,11 +11,10 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-internal class OfflineBookRepository @Inject constructor(
+class OfflineBookRepository @Inject constructor(
     private val bookDao: BookDao,
     private val dispatcher: CoroutineDispatcher
-) :
-    BookRepository {
+) : BookRepository {
 
     override suspend fun insertBook(book: Book): Result<Unit> {
         try {

@@ -11,7 +11,7 @@ class JournalViewModelTest {
 
     @Before
     fun setup() {
-        viewModel = JournalViewModel(FakeOfflineBookRepository(), Dispatchers.IO)
+        //viewModel = JournalViewModel(FakeOfflineBookRepository())
     }
 
     @Test

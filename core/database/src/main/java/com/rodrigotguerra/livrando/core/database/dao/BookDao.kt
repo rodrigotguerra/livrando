@@ -10,7 +10,7 @@ import com.rodrigotguerra.livrando.core.database.model.BookEntity
 @Dao
 interface BookDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertBook(book: BookEntity): Long
 
     @Delete
