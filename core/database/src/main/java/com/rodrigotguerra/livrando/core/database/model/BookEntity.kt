@@ -7,8 +7,8 @@ import com.rodrigotguerra.livrando.core.model.Book
 
 @Entity(tableName = "livrando-database")
 data class BookEntity (
-    @PrimaryKey
-    val id: String,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val title: String,
     val author: String,
     @ColumnInfo(name = "cover_url")

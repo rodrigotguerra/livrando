@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -31,17 +32,24 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
     api(project(":core:model"))
 
-    api(libs.hilt.android)
+
     api(libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.room)
     implementation(libs.androidx.runner)
-    ksp(libs.room.compiler)
+    kapt(libs.room.compiler)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

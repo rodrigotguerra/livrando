@@ -1,0 +1,10 @@
+<resources>
+    <string name="book_title">Título</string>
+    <string name="book_author">Autor</string>
+    <string name="book_pages">Total de páginas</string>
+    <string name="book_cover_accessibility">Capa do livro</string>
+    <string name="book_title_hint">Insira o título</string>
+    <string name="book_author_hint">Insira o autor</string>
+    <string name="book_pages_hint">Insira o total de páginas</string>
+    <string name="add_book_button_label">Adicionar livro</string>
+</resources>

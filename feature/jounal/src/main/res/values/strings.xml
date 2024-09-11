@@ -1,5 +1,0 @@
-<resources>
-    <string name="book_title_accessibility">Título do livro</string>
-    <string name="book_author_accessibility">Autor do livro</string>
-    <string name="book_cover_accessibility">Capa do livro</string>
-</resources>
