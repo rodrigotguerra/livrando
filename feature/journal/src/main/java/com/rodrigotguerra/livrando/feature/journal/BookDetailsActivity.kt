@@ -22,11 +22,12 @@ class BookDetailsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_book_details)
         binding.run {
             submitBook.setOnClickListener {
-                viewModel.addBook(
+                viewModel.addOrUpdateBook(
                     inputTitle.text.toString(),
                     inputAuthor.text.toString(),
                     "",
-                    inputPages.text.toString().toInt()
+                    inputPages.text.toString().toInt(),
+                    bookId
                 )
                 finish()
             }
@@ -36,9 +37,13 @@ class BookDetailsActivity : AppCompatActivity() {
     }
 
     private fun bindObservers() {
-        viewModel.selectedBook.observe(this) {
+        viewModel.selectedBook.observe(this) { book ->
             binding.isUpdate = true
-            setBookInputsText(it)
+            setBookInputsText(book)
+            binding.deleteBook.setOnClickListener {
+                viewModel.removeBook(book)
+                finish()
+            }
         }
     }
 
