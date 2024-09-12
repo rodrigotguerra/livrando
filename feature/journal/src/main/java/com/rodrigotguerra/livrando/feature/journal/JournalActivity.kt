@@ -1,5 +1,6 @@
 package com.rodrigotguerra.livrando.feature.journal
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -44,9 +45,10 @@ class JournalActivity : AppCompatActivity(), BookClickListener  {
         }
     }
 
-    override fun onBookClicked(book: Book) {
-        viewModel.removeBook(book)
-        viewModel.getBooks()
+    override fun onBookClicked(bookId: Int) {
+        val intent = Intent(this, BookDetailsActivity::class.java)
+        intent.putExtra(BookDetailsActivity.BOOK_ID_EXTRA, bookId)
+        startActivity(intent)
     }
 
 }

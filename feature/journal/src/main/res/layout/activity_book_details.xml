@@ -4,12 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="isUpdate"
+            type="Boolean" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gunmetal"
-        tools:context=".AddBookActivity">
+        tools:context=".BookDetailsActivity">
 
         <TextView
             android:id="@+id/label_title"
@@ -74,10 +82,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/add_book_button_label"
+            android:text="@{isUpdate ? @string/update_book_button_label : @string/add_book_button_label}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/delete_book"
             app:layout_constraintTop_toBottomOf="@id/input_pages" />
+
+        <Button
+            android:id="@+id/delete_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#ED2939"
+            android:textColor="@color/timberwolf"
+            android:text="@string/delete_book_button_label"
+            app:layout_constraintEnd_toStartOf="@id/submit_book"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_pages"
+            visible="@{isUpdate}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

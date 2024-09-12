@@ -7,4 +7,7 @@
     <string name="book_author_hint">Insira o autor</string>
     <string name="book_pages_hint">Insira o total de páginas</string>
     <string name="add_book_button_label">Adicionar livro</string>
+    <string name="update_book_button_label">Atualizar</string>
+    <string name="delete_book_button_label">Deletar</string>
+
 </resources>

@@ -4,6 +4,8 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:textColor">@color/timberwolf</item>
+        <item name="android:editTextColor">@color/timberwolf</item>
+        <item name="android:textColorHint">@color/timberwolf</item>
     </style>
 
     <style name="Theme.Livrando" parent="Base.Theme.Livrando" />
