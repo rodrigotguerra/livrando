@@ -11,7 +11,7 @@ import com.rodrigotguerra.livrando.core.model.Book
 import com.rodrigotguerra.livrando.feature.journal.R
 import com.rodrigotguerra.livrando.feature.journal.databinding.BookViewBinding
 import com.rodrigotguerra.livrando.core.ui.utils.ViewHolder
-import com.rodrigotguerra.livrando.feature.journal.AddBookActivity
+import com.rodrigotguerra.livrando.feature.journal.BookDetailsActivity
 import com.rodrigotguerra.livrando.feature.journal.BookClickListener
 import com.rodrigotguerra.livrando.feature.journal.databinding.AddBookViewBinding
 import javax.inject.Inject
@@ -44,7 +44,7 @@ class BookAdapter @Inject constructor() :
         if (position == itemCount - 1) {
             holder.itemView.setOnClickListener {
                 it.context.run {
-                    val intent = Intent(this, AddBookActivity::class.java)
+                    val intent = Intent(this, BookDetailsActivity::class.java)
                     startActivity(intent)
                 }
             }

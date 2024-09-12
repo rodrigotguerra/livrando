@@ -32,7 +32,7 @@ class BookDaoTest {
 
     @Test
     fun insert_book_success() = runTest {
-        val book = BookEntity("1", "Book Title", "Author Name", "url", 20)
+        val book = BookEntity(1, "Book Title", "Author Name", "url", 20)
         dao.insertBook(book)
 
         val byTitle = dao.findBooksByName("Book Title")
@@ -41,7 +41,7 @@ class BookDaoTest {
 
     @Test
     fun search_book_failed_then_success() = runTest {
-        val book = BookEntity("2", "Another Book", "Author Name", "url", 20)
+        val book = BookEntity(2, "Another Book", "Author Name", "url", 20)
         dao.insertBook(book)
 
         var byTitle = dao.findBooksByName("Book Title")

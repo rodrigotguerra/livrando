@@ -18,6 +18,15 @@ class FakeOfflineBookRepository : BookRepository {
         return Result.success(Unit)
     }
 
+    override suspend fun updateBook(book: Book): Result<Unit> {
+        val selectedBook = bookItems.find { item -> item.id == book.id}
+        return Result.success(Unit)
+    }
+
+    override suspend fun getBookFromId(bookId: Int): Book {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getBooks(): List<Book> {
         return bookItems
     }

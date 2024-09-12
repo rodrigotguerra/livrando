@@ -18,7 +18,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="140dp"
     android:layout_height="240dp"
-    android:onClick="@{() -> clickListener.onBookClicked(book)}">
+    android:onClick="@{() -> clickListener.onBookClicked(book.id)}">
 
 <ImageView
     android:id="@+id/book_cover"

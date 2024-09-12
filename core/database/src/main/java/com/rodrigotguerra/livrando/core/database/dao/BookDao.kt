@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.rodrigotguerra.livrando.core.database.model.BookEntity
 
 @Dao
@@ -15,6 +16,12 @@ interface BookDao {
 
     @Delete
     suspend fun deleteBook(book: BookEntity): Int
+
+    @Update
+    suspend fun update(book: BookEntity): Int
+
+    @Query("SELECT * FROM `livrando-database` WHERE id = :bookId")
+    suspend fun getBookFromId(bookId: Int): BookEntity
 
     @Query("SELECT * FROM `livrando-database`")
     fun getBooks(): List<BookEntity>

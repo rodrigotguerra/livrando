@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".AddBookActivity"
+            android:name=".BookDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".JournalActivity"

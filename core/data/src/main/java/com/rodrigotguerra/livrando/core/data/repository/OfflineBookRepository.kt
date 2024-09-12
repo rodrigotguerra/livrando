@@ -46,14 +46,31 @@ class OfflineBookRepository @Inject constructor(
         }
     }
 
-    override suspend fun getBooks(): List<Book> {
-        val books = bookDao.getBooks().map(BookEntity::asExternalModel)
-        return books
+    override suspend fun updateBook(book: Book): Result<Unit> {
+        try {
+            val response = withContext(dispatcher) {
+                bookDao.update(book.asEntity())
+            }
+            if (response < 0) {
+                throw Exception("Erro")
+            }
+            return Result.success(Unit)
+        } catch (e: Exception) {
+            Log.e(Constants.LOG, e.message.orEmpty())
+            return Result.failure(e)
+        }
     }
 
-    override suspend fun findBooksByName(search: String): List<Book> {
-        val books = bookDao.findBooksByName(search).map(BookEntity::asExternalModel)
-        return books
-    }
+    override suspend fun getBookFromId(bookId: Int): Book =
+        bookDao.getBookFromId(bookId).asExternalModel()
+
+
+    override suspend fun getBooks(): List<Book> =
+        bookDao.getBooks().map(BookEntity::asExternalModel)
+
+
+    override suspend fun findBooksByName(search: String): List<Book> =
+        bookDao.findBooksByName(search).map(BookEntity::asExternalModel)
+
 
 }

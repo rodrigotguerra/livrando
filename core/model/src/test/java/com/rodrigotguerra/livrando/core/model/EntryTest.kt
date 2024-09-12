@@ -18,7 +18,7 @@ class EntryTest {
 
     @Before
     fun setUp() {
-        mockBook = Book("1","Book Title", "Author Name", "url", 20)
+        mockBook = Book(1,"Book Title", "Author Name", "url", 20)
         mockEntry = Entry(mockBook, Date(1000L), 30, 5)
     }
 
