@@ -25,8 +25,7 @@ class JournalViewModel @Inject constructor(
     private val _selectedBook = MutableLiveData<Book>()
     val selectedBook = _selectedBook.toLiveData()
 
-    fun addBook(title: String, author: String, coverUrl: String, pages: Int) {
-        val book = Book(0, title, author, coverUrl, pages)
+    private fun addBook(book: Book) {
         viewModelScope.launch() {
             val response = withContext(dispatcher) {
                 offlineBookRepository.insertBook(book)
@@ -60,14 +59,24 @@ class JournalViewModel @Inject constructor(
         }
     }
 
-    fun updateBook(title: String, author: String, coverUrl: String, pages: Int) {
+    fun addOrUpdateBook(title: String, author: String, coverUrl: String, pages: Int, bookId: Int) {
+        if (bookId < 0) {
+            val book = Book(0, title, author, coverUrl, pages)
+            addBook(book)
+        } else {
+            val book = Book(bookId, title, author, coverUrl, pages)
+            updateBook(book)
+        }
+    }
+
+    private fun updateBook(book: Book) {
         viewModelScope.launch {
-//            val response = withContext(dispatcher) {
-//                offlineBookRepository.updateBook(book)
-//            }
-//            if (response.isSuccess) {
-//                getBooks()
-//            }
+            val response = withContext(dispatcher) {
+                offlineBookRepository.updateBook(book)
+            }
+            if (response.isSuccess) {
+                getBooks()
+            }
         }
     }
 
