@@ -4,7 +4,7 @@ import com.rodrigotguerra.livrando.core.data.repository.BookRepository
 import com.rodrigotguerra.livrando.core.model.Book
 
 
-class FakeOfflineBookRepository : BookRepository {
+class FakeOfflineBookRepository() : BookRepository {
 
     private val bookItems = mutableListOf<Book>()
 
@@ -19,12 +19,21 @@ class FakeOfflineBookRepository : BookRepository {
     }
 
     override suspend fun updateBook(book: Book): Result<Unit> {
-        val selectedBook = bookItems.find { item -> item.id == book.id}
-        return Result.success(Unit)
+        try {
+            val selectedBook = bookItems.find { item -> item.id == book.id}
+            val index = bookItems.indexOf(selectedBook)
+            if (index < 0) {
+               throw Exception("Erro ao encontrar o livro")
+            }
+            bookItems[index] = book
+            return Result.success(Unit)
+        } catch (e: Exception) {
+            return Result.failure(e)
+        }
     }
 
     override suspend fun getBookFromId(bookId: Int): Book {
-        TODO("Not yet implemented")
+        return bookItems.find { item -> item.id == bookId} ?: bookItems.first()
     }
 
     override suspend fun getBooks(): List<Book> {

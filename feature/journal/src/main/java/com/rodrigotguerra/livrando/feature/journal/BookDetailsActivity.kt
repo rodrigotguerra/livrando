@@ -22,13 +22,14 @@ class BookDetailsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_book_details)
         binding.run {
             submitBook.setOnClickListener {
-                viewModel.addOrUpdateBook(
+                val book = Book(
+                    bookId,
                     inputTitle.text.toString(),
                     inputAuthor.text.toString(),
                     "",
-                    inputPages.text.toString().toInt(),
-                    bookId
+                    inputPages.text.toString().toInt()
                 )
+                viewModel.addOrUpdateBook(book)
                 finish()
             }
         }

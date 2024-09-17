@@ -22,7 +22,7 @@ class OfflineBookRepository @Inject constructor(
                 bookDao.insertBook(book.asEntity())
             }
             if (response < 0) {
-                throw Exception("Erro")
+                throw Exception("Erro ao adicionar o livro")
             }
             return Result.success(Unit)
         } catch (e: Exception) {
@@ -37,7 +37,7 @@ class OfflineBookRepository @Inject constructor(
                 bookDao.deleteBook(book.asEntity())
             }
             if (response < 0) {
-                throw Exception("Erro")
+                throw Exception("Erro ao remover o livro")
             }
             return Result.success(Unit)
         } catch (e: Exception) {
@@ -52,7 +52,7 @@ class OfflineBookRepository @Inject constructor(
                 bookDao.update(book.asEntity())
             }
             if (response < 0) {
-                throw Exception("Erro")
+                throw Exception("Erro ao atualizar o livro")
             }
             return Result.success(Unit)
         } catch (e: Exception) {
