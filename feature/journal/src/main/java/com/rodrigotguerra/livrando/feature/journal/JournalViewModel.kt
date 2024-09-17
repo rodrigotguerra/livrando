@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rodrigotguerra.livrando.core.common.utils.toLiveData
-import com.rodrigotguerra.livrando.core.data.repository.OfflineBookRepository
+import com.rodrigotguerra.livrando.core.data.repository.BookRepository
 import com.rodrigotguerra.livrando.core.model.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class JournalViewModel @Inject constructor(
-    private val offlineBookRepository: OfflineBookRepository,
+    private val offlineBookRepository: BookRepository,
     private val dispatcher: CoroutineDispatcher
 ) :
     ViewModel() {
@@ -27,9 +27,8 @@ class JournalViewModel @Inject constructor(
 
     private fun addBook(book: Book) {
         viewModelScope.launch() {
-            val response = withContext(dispatcher) {
-                offlineBookRepository.insertBook(book)
-            }
+            val response = offlineBookRepository.insertBook(book)
+
             if (response.isSuccess) {
                 getBooks()
             }
@@ -38,9 +37,8 @@ class JournalViewModel @Inject constructor(
 
     fun removeBook(book: Book) {
         viewModelScope.launch {
-            val response = withContext(dispatcher) {
-                offlineBookRepository.deleteBook(book)
-            }
+            val response = offlineBookRepository.deleteBook(book)
+
             if (response.isSuccess) {
                 getBooks()
             }
@@ -59,21 +57,19 @@ class JournalViewModel @Inject constructor(
         }
     }
 
-    fun addOrUpdateBook(title: String, author: String, coverUrl: String, pages: Int, bookId: Int) {
-        if (bookId < 0) {
-            val book = Book(0, title, author, coverUrl, pages)
-            addBook(book)
+    fun addOrUpdateBook(book: Book) {
+        if (book.id < 0) {
+            val bookReplacement = Book(0, book.title, book.author, book.coverUrl, book.pages)
+            addBook(bookReplacement)
         } else {
-            val book = Book(bookId, title, author, coverUrl, pages)
             updateBook(book)
         }
     }
 
     private fun updateBook(book: Book) {
         viewModelScope.launch {
-            val response = withContext(dispatcher) {
-                offlineBookRepository.updateBook(book)
-            }
+            val response = offlineBookRepository.updateBook(book)
+
             if (response.isSuccess) {
                 getBooks()
             }
